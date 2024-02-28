@@ -39,7 +39,7 @@ const NoteState = (props) => {
                     "Content-Type": "application/json",
                     "auth-token": authToken
                 };
-                const res = await axios.get(`${url}api/notes/fetchallnotes`, { headers });
+                const res = await axios.get(`${url}/api/notes/fetchallnotes`, { headers });
                 setNotes(res.data);
             } else {
                 showAlert("Please login to view notes.", false);
@@ -55,7 +55,7 @@ const NoteState = (props) => {
             "auth-token": authToken
         };
         try {
-            const res = await axios.delete(`${url}api/notes/deletenote/${id}`, { headers });
+            const res = await axios.delete(`${url}/api/notes/deletenote/${id}`, { headers });
             showAlert("Note Deleted Successfully", true);
         } catch (error) {
             showAlert("Opps! Some Error Ocuured, try again.", false);
@@ -73,7 +73,7 @@ const NoteState = (props) => {
             "auth-token": authToken
         };
         try {
-            const res = await axios.put(`${url}api/notes/updatenote/${id}`, body, { headers });
+            const res = await axios.put(`${url}/api/notes/updatenote/${id}`, body, { headers });
             showAlert("Note Updated Successfully", true);
             getNotes();
         } catch (error) {
@@ -92,7 +92,7 @@ const NoteState = (props) => {
             "auth-token": authToken
         };
         try {
-            const res = await axios.post(`${url}api/notes/addnote/`, body, { headers });
+            const res = await axios.post(`${url}/api/notes/addnote/`, body, { headers });
             showAlert("Your note has been successfully added", true);
             console.log(res);
         } catch (error) {
@@ -110,7 +110,7 @@ const NoteState = (props) => {
             "Content-Type": "application/json"
         };
         try {
-            const res = await axios.post(`${url}api/auth/createuser`, body, { headers });
+            const res = await axios.post(`${url}/api/auth/createuser`, body, { headers });
             showAlert("User Created Successfully.", true);
         } catch (error) {
             showAlert("Failed to create user. Please try again.", false);
@@ -128,7 +128,7 @@ const NoteState = (props) => {
         "Content-Type": "application/json"
     };
     try {
-        const res = await axios.post(`${url}api/auth/login`, body, { headers });
+        const res = await axios.post(`${url}/api/auth/login`, body, { headers });
         if(res.data.authToken) {
             localStorage.setItem('authToken', res.data.authToken);
             checkStatus();
