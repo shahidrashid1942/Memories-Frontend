@@ -57,6 +57,7 @@ const NoteState = (props) => {
         try {
             const res = await axios.delete(`${url}/api/notes/deletenote/${id}`, { headers });
             showAlert("Note Deleted Successfully", true);
+            getNotes();
         } catch (error) {
             showAlert("Opps! Some Error Ocuured, try again.", false);
             console.error('Error deleting note:', error.message);
@@ -95,6 +96,7 @@ const NoteState = (props) => {
             const res = await axios.post(`${url}/api/notes/addnote/`, body, { headers });
             showAlert("Your note has been successfully added", true);
             console.log(res);
+            getNotes();
         } catch (error) {
             showAlert("Opps! Some Error Ocuured, try again.", false);
             console.error('Error updating note:', error.message);
@@ -114,7 +116,6 @@ const NoteState = (props) => {
             showAlert("User Created Successfully.", true);
         } catch (error) {
             showAlert("Failed to create user. Please try again.", false);
-            // history.push('/');
             console.error('Error creating user:', error.message);
         }
     }
@@ -137,7 +138,6 @@ const NoteState = (props) => {
         }
     } catch (error) {
         showAlert("Invalid Email or Password! Try Again.", false);
-        // history.push('/login'); 
         console.error('Error logging in:', error.message);
     }
 }
