@@ -8,7 +8,8 @@ const NoteState = (props) => {
     const [notes, setNotes] = useState();
     const [status, setStatus] = useState(null);
     const { showAlert } = useAlert();
-    const url = process.env.BASE_URL;
+    const url = import.meta.env.VITE_BASE_URL;
+    console.log(url);
     const authToken = localStorage.getItem('authToken');
 
     
