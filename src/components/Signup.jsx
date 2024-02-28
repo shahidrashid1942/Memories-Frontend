@@ -22,9 +22,9 @@ function Signup(props) {
         e.preventDefault();
         try {
             await signup(input.username, input.email, input.password);
-            navigate("/login"); // Navigate to "/login" if signup is successful
+            navigate("/notes"); // Navigate to "/login" if signup is successful
         } catch (error) {
-            navigate("/"); // Navigate to home route ("/") if signup fails
+            navigate("/signup"); // Navigate to home route ("/") if signup fails
         }
     }
 

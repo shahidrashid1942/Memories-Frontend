@@ -113,7 +113,12 @@ const NoteState = (props) => {
         };
         try {
             const res = await axios.post(`${url}/api/auth/createuser`, body, { headers });
-            showAlert("User Created Successfully.", true);
+            if(res.data.authToken) {
+                localStorage.setItem('authToken', res.data.authToken);
+                checkStatus();
+                await getNotes();
+                showAlert("Logged in successfully.", true);
+            }
         } catch (error) {
             showAlert("Failed to create user. Please try again.", false);
             console.error('Error creating user:', error.message);
