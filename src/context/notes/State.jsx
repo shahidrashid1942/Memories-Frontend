@@ -117,7 +117,7 @@ const NoteState = (props) => {
                 localStorage.setItem('authToken', res.data.authToken);
                 checkStatus();
                 await getNotes();
-                showAlert("Logged in successfully.", true);
+                showAlert("User created Successfully.", true);
             }
         } catch (error) {
             showAlert("Failed to create user. Please try again.", false);
