@@ -114,7 +114,7 @@ const NoteState = (props) => {
             showAlert("User Created Successfully.", true);
         } catch (error) {
             showAlert("Failed to create user. Please try again.", false);
-            history.push('/');
+            // history.push('/');
             console.error('Error creating user:', error.message);
         }
     }
@@ -137,7 +137,7 @@ const NoteState = (props) => {
         }
     } catch (error) {
         showAlert("Invalid Email or Password! Try Again.", false);
-        history.push('/login'); 
+        // history.push('/login'); 
         console.error('Error logging in:', error.message);
     }
 }
